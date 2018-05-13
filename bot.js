@@ -641,5 +641,241 @@ MPP .client.sendArray([{m:"userset", set:{name:msg.p.name.split('[AFK]').join(''
                         }
           }
 });
-  
-
+ //Action commands
+function getPart(boop) {
+    for (var id in MPP.client.ppl) {
+        var part = MPP.client.ppl[id];
+        if (part.name.toLowerCase().indexOf(boop.toLowerCase()) !== -1) {
+            return part;
+            break;
+        }
+    }
+}
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/rps") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name+ " plays rock paper sissors alone.");
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name+': '+rps[Math.floor(Math.random()*rps.length)]+' '+ MPP.client.ppl[part.id].name+':' +rps[Math.floor(Math.random()*rps.length)]);
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/fight") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name+ " said \"Why are you hitting yourself? Why are you hitting yourself? Why are you hitting yourself? Why am I hitting myself?\"");
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name+' got in to a fight with '+ MPP.client.ppl[part.id].name+' *Ding Ding Ding* Match over! ' +msg.p.name +' has ' +fights[Math.floor(Math.random()*fights.length)] );
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/hug") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name+ " gives themself a hug, how lonely.");
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name+' Gives '+ MPP.client.ppl[part.id].name+' a big hug. '+ MPP.client.ppl[part.id].name +': Help me');
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/kill") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(' In the ancient ritual of seppuku, ' + msg.p.name + ' unsheaths their sword and runs it though their stomach.');
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name + ' kills '+ MPP.client.ppl[part.id].name+' with ' + kills[Math.floor(Math.random()*kills.length)] +'. How? Who knows.');
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }      //  + MPP.client.ppl[part.id].name
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/kiss") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name + ' picks up a photo of themself wearing a full body red leotard.  They kiss it sloftly.');
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name + ' gives ' + MPP.client.ppl[part.id].name + ' a sloppy kiss.');
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/roast") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name + ' looks though a list of insecurities that they will use to roast themself. ');
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name + ' places ' + MPP.client.ppl[part.id].name + ' over a low burning flame');
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/stab") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name + ' Takes a knife and thows it at a wall.  It bounces back and takes out their left eye.');
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name + ' Takes a ' + knifes[Math.floor(Math.random()*knifes.length)] +' and stabs ' + MPP.client.ppl[part.id].name);
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/rip") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send('Rest in peace ' + msg.p.name + '.  They will be missed.');
+            return;
+        }
+        if (part) {
+            MPP.chat.send('Rest is peace ' + MPP.client.ppl[part.id].name + '.  They will be missed.  From ' + msg.p.name);
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/shoot") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name+ ' shot themself in the head because '+sreason[Math.floor(Math.random()*sreason.length)]+'.');
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name+' shoots '+ MPP.client.ppl[part.id].name+' because '+ureason[Math.floor(Math.random()*ureason.length)]+'.');
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/slap") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name+ 'slaps themself with a '+slapitem[Math.floor(Math.random()*slapitem.length)]+'.');
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name+' slaps '+ MPP.client.ppl[part.id].name+' across the face with a '+slapitem[Math.floor(Math.random()*slapitem.length)]+'.');
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/cuddle") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name + ' cuddles with their body pillow');
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name + ' cuddles with ' + MPP.client.ppl[part.id].name + '. They love it too.');
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/rape") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name + ' has become a victim of self-rape, aka. Masterbaiting.');
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name + ' rapes ' + MPP.client.ppl[part.id].name + '.  They enjoy it, but ' +msg.p.name+' was crying, so still rape.');
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+MPP.client.on("a", function(msg) {
+    var args = msg.a.split(" ");
+    var cmd = args[0].toLowerCase();
+    var argcat = msg.a.substring(cmd.length).trim();
+    if (cmd == "/friendzone") {
+        var part = getPart(argcat);
+        if (argcat.length == 0) {
+            MPP.chat.send(msg.p.name + ' friendzoned themself, how did it come to this.');
+            return;
+        }
+        if (part) {
+            MPP.chat.send(msg.p.name + ' friendzones ' + MPP.client.ppl[part.id].name + '.  They will cry for days on end.');
+        } else {
+            MPP.chat.send("The user '"+argcat+"' was not found.  Try using part of their username.");
+        }
+    }
+});
+ kills=['a screw',' a bow','a magnet','a nail file','coasters','deodorant','headphones','pants','a chair','a hanger','an ipod','an outlet','lip gloss','soap','a hair brush','a credit card','a blanket','chalk','perfume','a puddle','a paint brush','nail clippers','twister™','a slipper','a USB drive',' a pair of glasses','a computer','a cell phone','a box','some clothes','a lamp shade','a buckel','eye linertable','a washing machine','a zipper','teddies','a door','a bed','video gamessocks',' street lights','a key chain',' tooth picks','an eraser','a sketch pad','a keyboard','a sandal','a piano','a clay pot']
+knifes=['butterfly knife',' long sword','dagger','Boning Knife','Bread Knife','Butcher Knife','Breaking Knife','Chef\'s Knife','Cimeter','Cleaver']
+sreason=['the FBI was after them',' they were sad',' gave a bad hand shake',' forgot to flush','"It\'s the  Best way to make sure I\'m not dead already."','"They\'re waiting on me down below to start the party."','"The cost of living rises, but death remains affordable."']
+ureason=['they ate my oreos','they stole their walmat gift card','they said they were fat','they told someone who their crush is','The bartender put Clamato in their beer when they wanted tomato juice','they were wearing a bulletproof vest, they still died']
+slapitem=['20in dildo','te Holy Bible','pattle ','large mouthed bass','rubber glove','pillow pet\u2122','sandale','belt','small dog','dish rag, nasty','small automotive']
+fights=['won!','lost, boo!']
+rps=['Rock!','Paper!','Scissors!']
