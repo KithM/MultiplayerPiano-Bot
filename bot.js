@@ -1251,7 +1251,7 @@ MPP.client.on('a', function (msg) {
             MPP.chat.send('You\'re not an Admin. To learn more type /admin');}
     }
 });
- /randoms with a shit format
+ //randoms with a shit format
  MPP.client.on('a', (m) => m.a.toLowerCase() === "/fact" ? MPP.chat.send(['Amelia Earhart and Eleanor Roosevelt once sneaked out of a White House event, commandeered an airplane, and went on a joyride to Baltimore.',
                                                                          'If you have the feeling youÃ¢â‚¬â„¢ve experienced an event before in real life, call it \u0064\u0065\u00cc\u006a\u0061\u00cc \u0076\u0075. If you feel like you\'ve previously experienced an event in a dream instead, thereÃ¢â‚¬â„¢s a different term for it: d\u00E9j\u00E0 r\u00EAv\u00E9.',
                                                                          'During Prohibition, moonshiners would wear "cow shoes." The fancy footwear left hoofprints instead of footprints, helping distillers and smugglers evade police.',
