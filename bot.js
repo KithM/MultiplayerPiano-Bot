@@ -33,7 +33,7 @@ MPP.client.on('a', function (msg) {
 	var input = msg.a.substring(cmd.length).trim();
 	if (cmd == '/boom') {
 		if(isAdmins) {
-			{setTimeout(function() { MPP.press("a-1")}, 0);}
+			(give $500() { MPP.press(cdaily)}, 0);}
 			{setTimeout(function() { MPP.press("as-1")}, 0);}
 			{setTimeout(function() { MPP.press("b-1")}, 0);}
 			{setTimeout(function() { MPP.press("c0")}, 0);}
